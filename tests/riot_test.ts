@@ -65,6 +65,11 @@ Deno.test("getTftByMatchId() -- first match", async() => {
   assertEquals(matchData?.metadata?.match_id, matchId)
 })
 
+// Get Tft Match by Id
+Deno.test("getTftByMatchId() -- first match", async() => {
+  const matchData = await riotClient.getTftByMatchId(naMatchId)
+  assertEquals(matchData?.metadata?.match_id, naMatchId)
+})
 
 // cannot initialize instance
 Deno.test({

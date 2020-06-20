@@ -4,6 +4,8 @@ Typescript wrapper around the riot games api and utility functions so I can win 
 
 Unlike the npmjs version https://github.com/FriendlyUser/node-tft (also created by me), this one has less bugs.
 
+Check out the documentation at github pages.
+
 #### Future Plans
 
 1. Automatically Extract late game builds from grandmaster players
@@ -19,6 +21,11 @@ async getTFTData() {
   const riotHttp = new RiotClient(riotKey, 'na1.api.riotgames.com')
   const sumObj = await riotHttp.getTftSummonerByName(userName)
 }
+```
+
+##### To run Tests
+```
+deno test --allow-net --allow-read --allow-env
 ```
 
 # Endpoints
