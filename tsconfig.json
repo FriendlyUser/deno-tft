@@ -1,5 +1,4 @@
 {
-  "lib": "ES2015",
   "compilerOptions": {
     "module": "amd",
     "target": "esnext",
