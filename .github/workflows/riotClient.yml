@@ -27,7 +27,7 @@ jobs:
       - name: Test Riot Client
         run: /home/runner/.deno/bin/deno test --allow-net --allow-read --allow-env
       - name: Build typedoc
-        run: typedoc . --tsconfig tsconfig.json
+        run: typedoc . --tsconfig tsconfig.json --exclude \"tests/*.ts\"
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
