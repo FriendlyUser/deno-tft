@@ -15,7 +15,9 @@ jobs:
       - name: Set env variables
         run: echo $RIOT_API_KEY > .env
       - name: Install typedoc and typescript
-        run: npm install -g typescript typedoc
+        run: | 
+          npm install -g typescript typedoc
+          npm install --save-dev typescript-deno-plugin typedoc-plugin-deno
       # Install deno
       - name: Install deno
         run: |
