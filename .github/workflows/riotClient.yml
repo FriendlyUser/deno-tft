@@ -18,7 +18,11 @@ jobs:
         run: npm install -g typescript typedoc
       # Install deno
       - name: Install deno
-        run: curl -fsSL https://deno.land/x/install/install.sh | sh
+        run: |
+          curl -fsSL https://deno.land/x/install/install.sh | sh
+          export DENO_INSTALL="/home/runner/.deno"
+          export PATH="$DENO_INSTALL/bin:$PATH"
+          source ~/.bash_profile
       - name: Test Riot Client
         run: deno test --allow-net --allow-read --allow-env
       - name: Build typedoc
