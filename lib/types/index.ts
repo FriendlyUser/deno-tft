@@ -1,3 +1,4 @@
+// @ts-ignore
 import { RegionalUrls, PlatformUrls } from '../enums/index.ts';
 // match participant
 interface MatchParticipant {

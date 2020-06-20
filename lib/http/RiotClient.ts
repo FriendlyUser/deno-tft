@@ -1,5 +1,7 @@
 // Connect to riot games http
+// @ts-ignore
 import { RegionalUrls, PlatformUrls, HTTP, Tier, Division, AdvLeague } from '../enums/index.ts'
+// @ts-ignore
 import { TFTMatch, SummonerObj, RiotInterface, LeagueListDTO, LeagueEntryDTO } from '../types/index.ts'
 export class RiotClient implements RiotInterface {
   private RIOT_API_KEY: string|undefined
