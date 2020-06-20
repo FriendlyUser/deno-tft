@@ -24,7 +24,7 @@ jobs:
           export PATH="$DENO_INSTALL/bin:$PATH"
           source ~/.bash_profile
       - name: Test Riot Client
-        run: deno test --allow-net --allow-read --allow-env
+        run: /home/runner/.deno/bin/deno test --allow-net --allow-read --allow-env
       - name: Build typedoc
         run: typedoc .
       - name: Deploy 🚀
