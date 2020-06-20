@@ -35,7 +35,7 @@ jobs:
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs # The folder the action should deploy.
       - name: Build Typescript Project
-        run: tsc
+        run: tsc --lib ES2015
       - name: Npm Publishing
         run: npm publish
         env:
