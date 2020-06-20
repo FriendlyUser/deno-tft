@@ -1,0 +1,7 @@
+*.zip
+node_modules
+.env
+set2
+dist
+docs
+manualTests

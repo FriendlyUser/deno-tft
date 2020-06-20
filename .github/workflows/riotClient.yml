@@ -1,0 +1,37 @@
+name: Riot Games Api Checks
+
+on: push
+env:
+  RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - name: Set env variables
+        run: echo $RIOT_API_KEY > .env
+      - name: Install typedoc and typescript
+        run: npm install -g typescript typedoc
+      # Install deno
+      - name: Install deno
+        run: curl -fsSL https://deno.land/x/install/install.sh | sh
+      - name: Test Riot Client
+        run: deno test --allow-net --allow-read --allow-env
+      - name: Build typedoc
+        run: typedoc .
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: docs # The folder the action should deploy.
+      - name: Build Typescript Project
+        run: tsc
+      - name: Npm Publishing
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
