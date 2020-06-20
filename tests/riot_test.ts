@@ -16,7 +16,6 @@ Deno.test({
   name: "getTftSummonerByName() -- Get Personal Riot Account ",
   async fn() {
     const sumObj = await riotClient.getTftSummonerByName(userName)
-    console.log(sumObj)
     assertEquals(sumObj.name, userName)
   },
   // ignore resource sanitization
@@ -53,6 +52,7 @@ Deno.test("getAllTftMatchesByPuuid() defaulting to 20 matches", async() => {
 
 Deno.test("getAllTftMatchesByPuuid() getting 1000 matches", async() => {
   // got to play another tft game now to find out
+  // seems like max limit for tft games is 200
   const matches = await riotClient.getAllTftMatchesByPuuid(puuId, 200)
   assert(matches.length >= 200);
 });
